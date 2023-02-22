@@ -1,0 +1,9 @@
+---
+export interface Props extends astroHTML.JSX.AnchorHTMLAttributes {}
+
+const { class: className, repetitions, ...props } = Astro.props;
+---
+
+<fieldset class:list={[className]} {...props}>
+	{Array.from({ length: repetitions }).map(() => <slot />)}
+</fieldset>
